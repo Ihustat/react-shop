@@ -1,11 +1,15 @@
+import { ShopContext } from '../Context';
+import { useContext } from 'react';
+
 export function GoodsItem({
   mainId: id,
   displayName: name,
   displayDescription: description,
   price: { regularPrice: price },
   displayAssets: [{ full_background }],
-  addToBasket,
 }) {
+  const { addToBasket } = useContext(ShopContext);
+
   return (
     <div className='card' id={id}>
       <div className='card-image'>
