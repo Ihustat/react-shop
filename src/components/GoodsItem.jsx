@@ -4,6 +4,7 @@ export function GoodsItem({
   displayDescription: description,
   price: { regularPrice: price },
   displayAssets: [{ full_background }],
+  addToBasket,
 }) {
   return (
     <div className='card' id={id}>
@@ -15,7 +16,18 @@ export function GoodsItem({
         <p>{description}</p>
       </div>
       <div className='card-action'>
-        <button className='btn'>Buy</button>
+        <button
+          className='btn'
+          onClick={() =>
+            addToBasket({
+              id,
+              name,
+              price,
+            })
+          }
+        >
+          Buy
+        </button>
         <span className='right' style={{ fontSize: '1.8rem' }}>
           ${price}
         </span>
